@@ -1,0 +1,42 @@
+[
+    {
+	  "id": "64261e35b212c00217c32ed4",
+    	  "authorName": "Nisha Arya",
+    	  "blogTitle": "GPT-4: Everything You Need To Know",
+    	  "coverPicture": "https://www.kdnuggets.com/wp-content/uploads/arya_gpt4_everything_need_know_2.png",
+    	  "authorPicture": "https://www.kdnuggets.com/wp-content/uploads/nisha-arya.jpg",
+    	  "readingTime": 05,
+	  "publishDate": "Mar 15 (16 Days ago)",
+        "tags": "#OpenAI #GPT"
+    },
+    {
+	  "id": "64261e3578b9e385e666db38",
+        "authorName": "Youssef Rafaat",
+    	  "blogTitle": "4 Ways to Generate Passive Income Using ChatGPT",
+    	  "coverPicture": "https://www.kdnuggets.com/wp-content/uploads/rafaat_4_ways_generate_passive_income_chatgpt_1.jpg",
+    	  "authorPicture": "https://tinyurl.com/2mca3y4e",
+    	  "readingTime": 10,
+	  "publishDate": "Mar 10 (21 Days ago)",
+        "tags": "#ChatGPT"
+    },
+    {
+	  "id": "64261e35f040ef5235de385e",
+        "authorName": "Bala Priya C",
+    	  "blogTitle": "7 Must-Know Python Tips for Coding Interviews",
+    	  "coverPicture": "https://www.kdnuggets.com/wp-content/uploads/c_7_mustknow_python_tips_coding_interviews_1.png",
+    	  "authorPicture": "https://www.kdnuggets.com/wp-content/uploads/bala-priya-c-author.jpg",
+    	  "readingTime": 12,
+	  "publishDate": "Mar 20 (11 Days ago)",
+        "tags": "#python #interview"
+    },
+    {
+	  "id": "64261e35310bb64d6fda7fba",
+        "authorName": "Nahla Davies",
+    	  "blogTitle": "5 Machine Learning Skills Every Machine Learning Engineer Should Know in 2023",
+    	  "coverPicture": "https://tinyurl.com/2zmd4wre",
+    	  "authorPicture": "https://www.kdnuggets.com/wp-content/uploads/nahla-davies.jpg",
+    	  "readingTime": 07,
+	  "publishDate": "Mar 28 (03 Days ago)",
+        "tags": "#ML #programming"
+    }
+]
