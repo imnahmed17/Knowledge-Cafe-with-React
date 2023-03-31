@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './SideCart.css';
 
-const SideCart = ({ readTime, bookmarkTime }) => {
+const SideCart = ({ readTime, bookmarkInfo }) => {
     const [time, setTime] = useState(readTime);
-    const [count, setCount] = useState(bookmarkTime);
 
     useEffect(() => {
         const getReadTimeFromStorage = localStorage.getItem("readTime");
@@ -14,22 +13,22 @@ const SideCart = ({ readTime, bookmarkTime }) => {
         }
     }, [readTime]);
 
-    useEffect(() => {
-        const getBookmarkedTimeFromStorage = localStorage.getItem("bookmarkTime");
-        if (getBookmarkedTimeFromStorage) {
-            setCount(getBookmarkedTimeFromStorage);
-        } else {
-            setCount(bookmarkTime);
-        }
-    }, [bookmarkTime]);
-
     return (
         <div className='side-cart'>
             <div className='time-spent rounded py-3'>
-                <h6 className='fw-bold text-center'>Spent time on read: {time} min</h6>
+                <h6 className='fw-bold text-center mb-0'>Spent time on read: {time} min</h6>
             </div>
             <div className='bookmark-card p-3 my-3 rounded'>
-                <p className='fw-bold'>Bookmarked Blogs: {count}</p>
+                <p className='fw-bold'>Bookmarked Blogs: {bookmarkInfo.length}</p>
+                <div>
+                    {
+                        bookmarkInfo.map((item, index) => (
+                            <div key={index} className='card mt-2'>
+                                <small className='fw-bold'>{item}</small>
+                            </div>
+                        ))
+                    }
+                </div>
             </div>
         </div>
     );

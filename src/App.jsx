@@ -1,16 +1,23 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home';
 import SideCart from './components/SideCart/SideCart';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [readTime, setReadTime] = useState(0);
-  const [bookmarkTime, setBookmarkTime] = useState(0);
+  const [bookmarkInfo, setBookmarkInfo] = useState([]);
+
+  useEffect(() => {
+    const previousBookmark = JSON.parse(localStorage.getItem("bookmarks")) || [];
+    setBookmarkInfo(previousBookmark);
+  }, []);
 
   const handleReadTime = (time) => {
     const previousReadTime = JSON.parse(localStorage.getItem("readTime"));
-    
+
     if (previousReadTime) {
       const sum = previousReadTime + time;
       localStorage.setItem("readTime", sum);
@@ -21,30 +28,16 @@ function App() {
     }
   }
 
-  const handleBookmark = (id, title, count) => {
-    const previousBookmarkTime = JSON.parse(localStorage.getItem("bookmarkTime"));
-
-    if (previousBookmarkTime) {
-      const sum = previousBookmarkTime + 1;
-      localStorage.setItem("bookmarkTime", sum);
-      setBookmarkTime(sum);
-    } else {
-      localStorage.setItem("bookmarkTime", count);
-      setBookmarkTime(count);
-    }
-
+  const handleBookmark = (title) => {
     const previousBookmark = JSON.parse(localStorage.getItem("bookmarks"));
-    let bookmark = [];
-    const item = { id, title};
-
-    if (previousBookmark) {
-      bookmark.push(...previousBookmark, item);
-      localStorage.setItem("bookmarks", JSON.stringify(bookmark));
-    } else {
-      bookmark.push(item);
-      localStorage.setItem("bookmarks", JSON.stringify(bookmark));
+    
+    if (previousBookmark && previousBookmark.includes(title)) {
+      toast("Already bookmarked!");
     }
-}
+
+    localStorage.setItem("bookmarks", JSON.stringify([...bookmarkInfo, title]));
+    setBookmarkInfo([...bookmarkInfo, title]);
+  }
 
   return (
     <div>
@@ -56,11 +49,12 @@ function App() {
           <Home handleReadTime={handleReadTime} handleBookmark={handleBookmark}></Home>
         </div>
         <div className='side-cart col-md-4'>
-          <SideCart readTime={readTime} bookmarkTime={bookmarkTime}></SideCart>
+          <SideCart readTime={readTime} bookmarkInfo={bookmarkInfo}></SideCart>
         </div>
       </div>
+      <ToastContainer></ToastContainer>
     </div>
   )
 }
 
-export default App
+export default App;
