@@ -7,12 +7,11 @@ const Home = () => {
     useEffect(() => {
         fetch("data.json")
             .then((res) => res.json())
-            .then((data) => console.log(data));
+            .then((data) => setBlogs(data));
     }, []);
 
     return (
         <div>
-            <h1>this is home</h1>
             <div className="blog-container row">
                 {
                     blogs.map(blog => <SingleBlog 
