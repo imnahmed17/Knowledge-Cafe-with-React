@@ -1,0 +1,12 @@
+.side-cart {
+    position: sticky;
+    top: 0;
+}
+.time-spent {
+    background: rgba(96, 71, 236, 0.1);
+    color: #6047EC;
+    border: 1px solid #6047EC;
+}
+.bookmark-card {
+    background: rgba(96, 71, 236, 0.1);
+}

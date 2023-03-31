@@ -5,7 +5,19 @@ import Home from './components/Home/Home';
 import SideCart from './components/SideCart/SideCart';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [readTime, setReadTime] = useState(0);
+
+  const handleReadTime = (time) => {
+    const previousReadTime = JSON.parse(localStorage.getItem("readTime"));
+    if (previousReadTime) {
+      const sum = previousReadTime + time;
+      localStorage.setItem("readTime", sum);
+      setReadTime(sum);
+    } else {
+      localStorage.setItem("readTime", time);
+      setReadTime(time);
+    }
+  }
 
   return (
     <div>
@@ -13,11 +25,11 @@ function App() {
         <Header></Header>
       </div>
       <div className='main row'>
-        <div className='home-container col-md-9'>
-          <Home></Home>
+        <div className='home-container col-md-8'>
+          <Home handleReadTime={handleReadTime}></Home>
         </div>
-        <div className='side-cart col-md-3'>
-          <SideCart></SideCart>
+        <div className='side-cart col-md-4'>
+          <SideCart readTime={readTime}></SideCart>
         </div>
       </div>
     </div>
