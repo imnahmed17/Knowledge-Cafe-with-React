@@ -19,6 +19,22 @@ function App() {
     }
   }
 
+  const handleBookmark = (id, title) => {
+    // console.log(id, title)
+    const previousBookmark = JSON.parse(localStorage.getItem("bookmark"));
+    let bookmark = [];
+    const item = { id, title};
+
+    if (previousBookmark) {
+        bookmark.push(...previousBookmark, item);
+        localStorage.setItem("bookmark", JSON.stringify(bookmark));
+        console.log(bookmark);
+    } else {
+        bookmark.push(item);
+        localStorage.setItem("bookmark", JSON.stringify(bookmark));
+    }
+}
+
   return (
     <div>
       <div className='header m-auto mb-3'>
@@ -26,7 +42,7 @@ function App() {
       </div>
       <div className='main row'>
         <div className='home-container col-md-8'>
-          <Home handleReadTime={handleReadTime}></Home>
+          <Home handleReadTime={handleReadTime} handleBookmark={handleBookmark}></Home>
         </div>
         <div className='side-cart col-md-4'>
           <SideCart readTime={readTime}></SideCart>
