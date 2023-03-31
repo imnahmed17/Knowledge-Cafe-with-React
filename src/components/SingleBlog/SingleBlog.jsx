@@ -3,7 +3,6 @@ import './SingleBlog.css';
 import { BsBookmark } from 'react-icons/bs';
 
 const SingleBlog = ({ blog, handleReadTime, handleBookmark }) => {
-    // console.log(blog);
     let temp = 0;
     if (blog.readingTime >= 0 && blog.readingTime <= 9) {
         temp = 1;
@@ -25,7 +24,7 @@ const SingleBlog = ({ blog, handleReadTime, handleBookmark }) => {
                 </div>
                 <div className='d-flex align-items-center'>
                     <p className='text-secondary me-2'>{temp == 0 ? blog.readingTime : '0' + blog.readingTime} min read</p>
-                    <p onClick={() => handleBookmark(blog.id, blog.blogTitle)}><BsBookmark /></p>
+                    <p onClick={() => handleBookmark(blog.id, blog.blogTitle, 1)}><BsBookmark /></p>
                 </div>
             </div>
             <h2>{blog.blogTitle}</h2>
