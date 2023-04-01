@@ -1,9 +1,9 @@
 .mark-read {
     text-decoration: underline;
-    color: rgb(13, 180, 240);
-}
-.mark-read:hover {
     color: rgb(13, 110, 253);
+}
+.mark-read:hover {   
+    color: #6047EC;
 }
 .author-info img {
     width: 55px;

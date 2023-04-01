@@ -42,7 +42,7 @@ function App() {
 
   return (
     <div>
-      <div className='header m-auto'>
+      <div>
         <Header></Header>
       </div>
       <div className='main row my-4'>

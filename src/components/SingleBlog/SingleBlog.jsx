@@ -44,7 +44,7 @@ const SingleBlog = ({ blog, handleReadTime, handleBookmark }) => {
                     </p>
                 </div>
             </div>
-            <h2>{blog.blogTitle}</h2>
+            <h2 className='fw-bold'>{blog.blogTitle}</h2>
             <p className='text-secondary'>{blog.tags}</p>
             <a className='mark-read' onClick={() => handleReadTime(blog.readingTime)}>Mark as read</a>
         </div>

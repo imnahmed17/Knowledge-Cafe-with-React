@@ -4,8 +4,10 @@
 }
 .time-spent {
     background: rgba(96, 71, 236, 0.1);
-    color: #6047EC;
     border: 1px solid #6047EC;
+}
+.time-spent h6 {
+    color: #6047EC;
 }
 .bookmark-card {
     background: rgba(96, 71, 236, 0.1);
