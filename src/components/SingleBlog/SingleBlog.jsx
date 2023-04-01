@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './SingleBlog.css';
-import { BsBookmark } from 'react-icons/bs';
+import { BsBookmark, BsBookmarkFill } from 'react-icons/bs';
 
 const SingleBlog = ({ blog, handleReadTime, handleBookmark }) => {
+    const [iconType, setIconType] = useState('BsBookmark');
+
     let temp = 0;
     if (blog.readingTime >= 0 && blog.readingTime <= 9) {
         temp = 1;
+    }
+
+    const handleClick = () => {
+        if (iconType === 'BsBookmark') {
+            setIconType('BsBookmarkFill');
+        } 
+    }
+
+    const handleMultipleFunctions = () => {
+        handleBookmark(blog.blogTitle);
+        handleClick();
     }
 
     return (
@@ -23,8 +36,12 @@ const SingleBlog = ({ blog, handleReadTime, handleBookmark }) => {
                     </p>
                 </div>
                 <div className='bookmark-container d-flex align-items-center'>
-                    <p className='text-secondary me-2 mb-0'>{temp == 0 ? blog.readingTime : '0' + blog.readingTime} min read</p>
-                    <p className='mb-1' onClick={() => handleBookmark(blog.blogTitle)}><BsBookmark /></p>
+                    <p className='text-secondary me-2 mb-0'>
+                        {temp == 0 ? blog.readingTime : '0' + blog.readingTime} min read
+                    </p>
+                    <p className='mb-1' onClick={() => handleMultipleFunctions()}>
+                        {iconType === 'BsBookmark' ? <BsBookmark /> : <BsBookmarkFill />}
+                    </p>
                 </div>
             </div>
             <h2>{blog.blogTitle}</h2>
