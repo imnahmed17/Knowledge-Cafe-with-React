@@ -33,7 +33,7 @@ function App() {
     const previousBookmark = JSON.parse(localStorage.getItem("bookmarks"));
     
     if (previousBookmark && previousBookmark.includes(title)) {
-      toast("You Have Already Bookmarked This Blog!");
+      toast.warn("Already Bookmarked This Blog!");
     }
 
     localStorage.setItem("bookmarks", JSON.stringify([...bookmarkInfo, title]));
@@ -42,7 +42,7 @@ function App() {
 
   return (
     <div>
-      <div>
+      <div className='header'>
         <Header></Header>
       </div>
       <div className='main row my-4'>
