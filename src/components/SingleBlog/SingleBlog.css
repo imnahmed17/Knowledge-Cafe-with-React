@@ -2,9 +2,20 @@
     text-decoration: underline;
     color: rgb(13, 110, 253);
 }
+.marked-read {
+    color: #6047EC;
+}
+.marked-read:hover {
+    color: #6047EC;
+    cursor: pointer;
+}
 .mark-read:hover {   
     color: #6047EC;
+    cursor: pointer;
 }
 .author-info img {
     width: 55px;
+}
+.bookmark-icon {
+    cursor: pointer;
 }

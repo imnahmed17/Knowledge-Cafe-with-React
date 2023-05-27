@@ -4,6 +4,7 @@ import { BsBookmark, BsBookmarkFill } from 'react-icons/bs';
 
 const SingleBlog = ({ blog, handleReadTime, handleBookmark }) => {
     const [iconType, setIconType] = useState('BsBookmark');
+    const [clickCount, setClickCount] = useState(0);
 
     let temp = 0;
     if (blog.readingTime >= 0 && blog.readingTime <= 9) {
@@ -14,12 +15,17 @@ const SingleBlog = ({ blog, handleReadTime, handleBookmark }) => {
         if (iconType === 'BsBookmark') {
             setIconType('BsBookmarkFill');
         } 
-    }
+    };
 
     const handleMultipleFunctions = () => {
         handleBookmark(blog.blogTitle);
         handleClick();
-    }
+    };
+
+    const handleButtonClick = () => {
+        handleReadTime(blog.readingTime);
+        setClickCount(clickCount + 1);
+    };
 
     return (
         <div className='blog-card mb-4'>
@@ -39,14 +45,14 @@ const SingleBlog = ({ blog, handleReadTime, handleBookmark }) => {
                     <p className='text-secondary me-2 mb-0'>
                         {temp == 0 ? blog.readingTime : '0' + blog.readingTime} min read
                     </p>
-                    <p className='mb-1' onClick={() => handleMultipleFunctions()}>
+                    <p className='mb-1 bookmark-icon' onClick={handleMultipleFunctions}>
                         {iconType === 'BsBookmark' ? <BsBookmark /> : <BsBookmarkFill />}
                     </p>
                 </div>
             </div>
             <h2 className='fw-bold'>{blog.blogTitle}</h2>
             <p className='text-secondary'>{blog.tags}</p>
-            <a className='mark-read' onClick={() => handleReadTime(blog.readingTime)}>Mark as read</a>
+            <a className={clickCount > 0 ? "marked-read" : "mark-read"} onClick={handleButtonClick}>Mark as read</a>
         </div>
     );
 };

@@ -1,8 +1,8 @@
-# b7a8-knowledge-cafe-imnahmed17
+# knowledge-cafe
 A simple React app
 
 ## Live Link
-Hosted in Netlify -> [Knowledge Cafe](https://resilient-concha-b2fb63.netlify.app/)
+Hosted in Netlify -> [Knowledge Cafe](https://resilient-concha-b2fb63.netlify.app)
 
 ## Features
 * navbar (website name, user photo)
@@ -15,7 +15,7 @@ Hosted in Netlify -> [Knowledge Cafe](https://resilient-concha-b2fb63.netlify.ap
 ## Resources & Credits
 CSS Framework -> [React Bootstrap](https://react-bootstrap.github.io/getting-started/introduction)
 
-Icon -> [React Font Awesome](https://fontawesome.com/v5/docs/web/use-with/react)
+Icon -> [react-icons](https://react-icons.github.io/react-icons)
 
 Toast -> [react-toastify](https://www.npmjs.com/package/react-toastify)
 

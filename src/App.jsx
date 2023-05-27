@@ -27,7 +27,7 @@ function App() {
       localStorage.setItem("readTime", time);
       setReadTime(time);
     }
-  }
+  };
 
   const handleBookmark = (title) => {
     const previousBookmark = JSON.parse(localStorage.getItem("bookmarks"));
@@ -38,7 +38,7 @@ function App() {
 
     localStorage.setItem("bookmarks", JSON.stringify([...bookmarkInfo, title]));
     setBookmarkInfo([...bookmarkInfo, title]);
-  }
+  };
 
   return (
     <div>
